@@ -1,0 +1,16 @@
+org/legenddragon/craftattack/listener/onLogin.class
+org/legenddragon/craftattack/command/spawn.class
+org/legenddragon/craftattack/command/inv.class
+org/legenddragon/craftattack/command/stats.class
+org/legenddragon/craftattack/config/CustomConfiguration.class
+org/legenddragon/craftattack/command/ec.class
+org/legenddragon/craftattack/listener/onJoin.class
+org/legenddragon/craftattack/listener/onElytraToggle.class
+org/legenddragon/craftattack/command/pos.class
+org/legenddragon/craftattack/listener/onPlayerMovement.class
+org/legenddragon/craftattack/listener/onServerListPing.class
+org/legenddragon/craftattack/craftattack.class
+org/legenddragon/craftattack/listener/onInventoryInteract.class
+org/legenddragon/craftattack/listener/onQuit.class
+org/legenddragon/craftattack/command/lock.class
+org/legenddragon/craftattack/command/tpa.class
