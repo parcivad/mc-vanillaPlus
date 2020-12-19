@@ -21,6 +21,10 @@ public class onLogin implements Listener {
         String message = (String) plugin.ServerConfig.get().get("Server.message");
         boolean lockmode = plugin.ServerConfig.get().getBoolean("Server.LockMode");
 
+        if ( !p.isWhitelisted() ) {
+            e.disallow(PlayerLoginEvent.Result.KICK_OTHER, "§6Teilnehmer §a§l//§r §7Melde dich bei dem Owner um zugang auf den Server zu bekommen");
+        }
+
         if (lockmode) {
             if ( !p.hasPermission("server.settings")) {
                 e.disallow(PlayerLoginEvent.Result.KICK_OTHER, "§4✖§r §6§lCraftattack Netzwerk§r §7ist §cgelockt§r§7! §4✖§r  §7// §c§l" + message);
@@ -33,7 +37,6 @@ public class onLogin implements Listener {
                 // Creating a User
                 plugin.PlayerConfig.get().createSection("User." + p.getUniqueId());
                 plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".DisplayName", p.getDisplayName() );
-                plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Address", p.getAddress() );
                 plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", null);
                 e.disallow(PlayerLoginEvent.Result.KICK_OTHER, "§6Spieler erstellt! §a§l//§r §7Dir wurde ein Spieler erstellt du kannst nochmal versuchen zu joinen!");
             }

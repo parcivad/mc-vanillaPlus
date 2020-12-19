@@ -29,16 +29,22 @@ public class onPlayerMovement implements Listener {
         Player p = e.getPlayer();
         Location pos = e.getPlayer().getLocation();
 
+        Location booster = plugin.ServerConfig.get().getLocation("Server.Booster-Height");
 
-        if ( pos.getBlockX() == Bukkit.getWorld("world").getSpawnLocation().getBlockX() && pos.getBlockZ() == Bukkit.getWorld("world").getSpawnLocation().getBlockZ() && pos.getBlockY() < 130) {
+        Location ploc = p.getLocation();
+        Location jumpoffmiddle = plugin.ServerConfig.get().getLocation("Server.JumpOffMiddle");
+        Integer Radius = plugin.ServerConfig.get().getInt("Server.JumpOffRadius");
 
-            p.addPotionEffect( new PotionEffect( PotionEffectType.LEVITATION, 5, 30));
+        if ( pos.getBlockX() == booster.getBlockX() && pos.getBlockZ() == booster.getBlockZ() && pos.getBlockY() < booster.getBlockY()) {
 
-        } else if ( pos.getBlockX() == Bukkit.getWorld("world").getSpawnLocation().getBlockX() && pos.getBlockZ() == Bukkit.getWorld("world").getSpawnLocation().getBlockZ() && pos.getBlockY() >= 130 ) {
+            p.addPotionEffect( new PotionEffect( PotionEffectType.LEVITATION, 5, 30, false, false, false));
+
+        } else if ( pos.getBlockX() == booster.getBlockX() && pos.getBlockZ() == booster.getBlockZ() && pos.getBlockY() >= booster.getBlockY() ) {
 
             p.removePotionEffect( PotionEffectType.LEVITATION );
             GiveElytra(p);
         }
+
     }
 
     public void GiveElytra(Player p) {

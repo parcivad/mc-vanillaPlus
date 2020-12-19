@@ -32,7 +32,7 @@ public class tpa implements CommandExecutor {
                 craftattack.tpa.put(p2, p);
 
                 // Send Message
-                p2.sendMessage(plugin.Serverprefix + "§7Der Spieler §6" + p.getDisplayName() + "§r§7 möchte sich zu dir §cteleportieren§7! Entscheide: §a§l/tpa accept§r§7/§l§cdenied§r§7 ein.");
+                p2.sendMessage(plugin.Serverprefix + "§7Der Spieler §6" + p.getDisplayName() + "§r§7 möchte sich zu dir §cteleportieren§7! Entscheide: §a§l/tpa accept§r§7/§c§lcdenied§r§7 ein.");
                 p.sendMessage(plugin.Serverprefix + "§7Die Anfrage wurde an §6" + p2.getDisplayName() + "§7 geschickt!");
 
             } catch (Exception ex) {

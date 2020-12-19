@@ -6,7 +6,7 @@
 
     <groupId>org.legenddragon</groupId>
     <artifactId>craftattack</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>3.0-Stable</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

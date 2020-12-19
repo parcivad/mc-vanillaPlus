@@ -22,6 +22,7 @@ public class spawn implements CommandExecutor {
             Player p = (Player) sender;
 
             p.teleport(Bukkit.getWorld("world").getSpawnLocation());
+            p.sendMessage(plugin.Serverprefix + "§7Du wurdest zum §6Spawn §7teleportiert!");
         }
 
         return false;

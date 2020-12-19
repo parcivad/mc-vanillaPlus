@@ -25,13 +25,24 @@ public class pos implements CommandExecutor {
             String posName = args[1].toString();
 
             // Is there any Location with the same name
-            if ( plugin.PlayerConfig.get().isSet("User." + p.getUniqueId() + "." + posName) ) { p.sendMessage(plugin.Serverprefix + "§cEs existiert bereits eine Position mit diesem Namen!"); }
+            if ( plugin.PlayerConfig.get().isSet("User." + p.getUniqueId() + "." + posName) ) { p.sendMessage(plugin.Serverprefix + "§cEs existiert bereits eine Position mit diesem Namen!"); return true; }
 
             // Save it in PlayerConfig
             plugin.PlayerConfig.get().set("User." + p.getUniqueId() + "." + posName, pos);
             plugin.PlayerConfig.save();
 
             p.sendMessage(plugin.Serverprefix + "§7Die Position §9" + posName + "§7 wurde §aabgespeichert!");
+        } else if ( args.length == 2 && args[0].equals("delete") ) {
+            String posName = args[1].toString();
+
+            // Is there any Location with the same name
+            if ( !plugin.PlayerConfig.get().isSet("User." + p.getUniqueId() + "." + posName) ) { p.sendMessage(plugin.Serverprefix + "§cEs existiert keine Position mit diesem Namen!"); return true; }
+
+            // Save it in PlayerConfig
+            plugin.PlayerConfig.get().set("User." + p.getUniqueId() + "." + posName, null);
+            plugin.PlayerConfig.save();
+
+            p.sendMessage(plugin.Serverprefix + "§7Die Position §9" + posName + "§7 wurde §cgelöscht!");
         } else if ( args.length == 1 ) {
             //searching for name in PlayerConfig under the Player and send coordinates in the Chat
             String posName = args[0].toString();
@@ -44,7 +55,7 @@ public class pos implements CommandExecutor {
                 p.sendMessage(plugin.Serverprefix + "§cDiese Location existiert unter deinem Account nicht!");
             }
         } else {
-            p.sendMessage(plugin.Serverprefix + "§7Befehl:§6 /pos {save/name} {name}");
+            p.sendMessage(plugin.Serverprefix + "§7Befehl:§6 /pos {save/delete/name} {name}");
         }
         return false;
     }

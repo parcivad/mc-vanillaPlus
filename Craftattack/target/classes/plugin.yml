@@ -14,6 +14,10 @@ permissions:
     description: "Let the Player open EnderChest from another Player"
   invsee:
     description: "Let the Player see into a Inventory from another Player"
+  tablist.owner:
+    description: "Shows the Player has the Owner in the Tablist"
+  tablist.dev:
+    description: "Shows the Player has the Dev in the Tablist"
 
 commands:
   tpa:
@@ -31,3 +35,9 @@ commands:
     description: "Teleports Player to Spawn"
   stats:
     description: "Shows some Minecraft Statistics"
+  status:
+    description: "Setzt dem Spieler einen Aktuellen Status"
+  help:
+    description: "Shows all Commands"
+  settings:
+    description: "ServerConfig settings"

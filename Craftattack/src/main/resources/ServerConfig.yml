@@ -1,6 +1,4 @@
 Server:
   LockMode: true
   message: ""
-  Motd:
-    onLock: "gelockt!"
-    onUnlocked: "offen!"
+  Boost-Height: 130
