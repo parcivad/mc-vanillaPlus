@@ -31,14 +31,14 @@ public class stats implements CommandExecutor {
             Integer pDiamands = p.getStatistic(Statistic.MINE_BLOCK, Material.DIAMOND);
             if ( pDiamands == null ) { pDiamands = 0; }
 
-            p.sendMessage(plugin.Serverprefix + "§7-----------[ §6§lSTATS §r§7]-----------");
+            p.sendMessage(plugin.Serverprefix + "§7-----------< §6§lSTATS §r§7>-----------");
             p.sendMessage(plugin.Serverprefix + "§7- §6Player:§a " + p.getDisplayName());
             p.sendMessage(plugin.Serverprefix + "§7- §6Player Kills:§a " + pKills + "§c⚔");
             p.sendMessage(plugin.Serverprefix + "§7- §6Deaths:§c " + pDeaths + "☠");
             p.sendMessage(plugin.Serverprefix + "§7- §6Last Damage:§a " + pDamageTaken + "§c❤");
             p.sendMessage(plugin.Serverprefix + "§7- §6Jumps:§a " + pJumps);
             p.sendMessage(plugin.Serverprefix + "§7- §6Diamonds:§a " + pDiamands + "♦");
-            p.sendMessage(plugin.Serverprefix + "§7-----------[ §6§lSTATS §r§7]-----------");
+            p.sendMessage(plugin.Serverprefix + "§7-----------< §6§lSTATS §r§7>-----------");
 
         } else if ( args.length == 1 ) {
 
@@ -53,14 +53,14 @@ public class stats implements CommandExecutor {
                 Integer pDiamands = p2.getStatistic(Statistic.PICKUP, Material.DIAMOND);
                 if ( pDiamands == null ) { pDiamands = 0; }
 
-                p.sendMessage(plugin.Serverprefix + "§7-----------[ §6§lSTATS §r§7]-----------");
+                p.sendMessage(plugin.Serverprefix + "§7-----------< §6§lSTATS §r§7>-----------");
                 p.sendMessage(plugin.Serverprefix + "§7- §6Player:§a " + p2.getDisplayName());
                 p.sendMessage(plugin.Serverprefix + "§7- §6Player Kills:§a " + pKills + "§c⚔");
                 p.sendMessage(plugin.Serverprefix + "§7- §6Deaths:§c " + pDeaths + "☠");
                 p.sendMessage(plugin.Serverprefix + "§7- §6Damage taken:§a " + pDamageTaken + "§c❤");
                 p.sendMessage(plugin.Serverprefix + "§7- §6Jumps:§a " + pJumps);
                 p.sendMessage(plugin.Serverprefix + "§7- §6Diamonds:§a " + pDiamands + "♦");
-                p.sendMessage(plugin.Serverprefix + "§7-----------[ §6§lSTATS §r§7]-----------");
+                p.sendMessage(plugin.Serverprefix + "§7-----------< §6§lSTATS §r§7>-----------");
             } catch (Exception ex) {
                 p.sendMessage(plugin.Serverprefix + "§cDer Spieler ist nicht erreichbar!");
             }

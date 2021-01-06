@@ -17,16 +17,26 @@ Die Features, bzw. Commands, sind folgende
 /pos {save/name} {name}   
 /lock {message/on/off} {reason}
 /stats {player}
+/settings {booster}
 ```
 
-Zudem gibt es eine Art JumpTower womit der Spieler am Spawn nach oben geboostet wirt und eine Elytra bekommt.
-Diese wird dem Spieler nach dem Landen entzogen.
+## Booster
+Der Booster ist eine Position die man setzt. Der Spieler wird dann entlang der y Koordinate nach oben geboostet. Bei der gesetzten Position
+wird das Boosten beendet und dem Spieler wird eine Elytra gegeben die für einen Flug reicht. 
+
+Die Elytra ist zudem gegen das Duplizieren geschützt
+
 
 ## Permissions
-Das Plugin hat Folgende Permissions
+Das Plugin hat Folgende Permissions:
 ```
 server.setting  To Lock or unlock the Server
 enderchest.open  Player can open Enderchest from another Player
 invsee  Player can use the Command /inv
-
 enderchest.open  Player can open Enderchest from another Player
+```
+
+### Code
+Das Projekt basiert auf Maven
+
+

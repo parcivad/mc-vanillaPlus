@@ -1,7 +1,6 @@
 package org.legenddragon.craftattack;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,7 +17,8 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class craftattack extends JavaPlugin implements Listener {
-    // Server Prefix
+
+    // Plugin Prefix
     public String Serverprefix = "§7[§6§lCA§r§7] §r";
 
     // Normal config for some saves
@@ -48,6 +48,8 @@ public class craftattack extends JavaPlugin implements Listener {
         sb.getTeam("00003Neutral").setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
         sb.registerNewTeam("00003Fighting").setPrefix("§cFighting §7| §f");
         sb.getTeam("00003Fighting").setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
+        sb.registerNewTeam("00003Killer").setPrefix("§cKiller §7| §f");
+        sb.getTeam("00003Killer").setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
         sb.registerNewTeam("00002Live").setPrefix("§cLIVE §7| §f");
         sb.getTeam("00002Live").setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
         sb.registerNewTeam("00002REC").setPrefix("§9REC §7| §f");
@@ -58,6 +60,8 @@ public class craftattack extends JavaPlugin implements Listener {
         sb.getTeam("00009Afk").setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
         sb.registerNewTeam("00008none").setPrefix("§7 - | §f");
         sb.getTeam("00008none").setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
+        sb.registerNewTeam("00003Ehe").setPrefix("§bEhe §7| §f");
+        sb.getTeam("00003Ehe").setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
 
         // Reload and save Config files
         reloadConfig();
@@ -74,7 +78,7 @@ public class craftattack extends JavaPlugin implements Listener {
         ServerConfig.save();
 
         // Register Events
-        Bukkit.getPluginManager().registerEvents(new onJoin( this), this);
+        Bukkit.getPluginManager().registerEvents(new onJoin(), this);
         Bukkit.getPluginManager().registerEvents(new onQuit( this), this);
         Bukkit.getPluginManager().registerEvents(new onLogin(this), this);
         Bukkit.getPluginManager().registerEvents(new onServerListPing(this), this);
@@ -96,6 +100,7 @@ public class craftattack extends JavaPlugin implements Listener {
             Objects.requireNonNull(getCommand("status")).setExecutor(new status(this));
             Objects.requireNonNull(getCommand("help")).setExecutor(new help(this));
             Objects.requireNonNull(getCommand("settings")).setExecutor(new settings(this));
+            Objects.requireNonNull(getCommand("seed")).setExecutor(new seed(this));
         } catch(NullPointerException ex) {
             ex.printStackTrace();
             messageOps("§c§lPLUGIN ERROR: " + Arrays.toString(ex.getStackTrace()));
@@ -157,6 +162,14 @@ public class craftattack extends JavaPlugin implements Listener {
                 case "Fighting":
                     sb.getTeam("00003Fighting").addPlayer(p);
                     p.setDisplayName(sb.getTeam("00003Fighting").getPrefix() + p.getName() + "§f");
+                    break;
+                case "Ehe":
+                    sb.getTeam("00003Ehe").addPlayer(p);
+                    p.setDisplayName(sb.getTeam("00003Ehe").getPrefix() + p.getName() + "§f");
+                    break;
+                case "Killer":
+                    sb.getTeam("00003Killer").addPlayer(p);
+                    p.setDisplayName(sb.getTeam("00003Killer").getPrefix() + p.getName() + "§f");
                     break;
                 case "Afk":
                     sb.getTeam("00009Afk").addPlayer(p);

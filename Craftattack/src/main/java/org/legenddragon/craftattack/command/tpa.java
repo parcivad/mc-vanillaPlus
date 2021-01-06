@@ -21,18 +21,18 @@ public class tpa implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
         Player p = (Player) sender;
 
-        if ( args.length == 2 && args[0].equals("to")) {
-            if ( p == Bukkit.getPlayer(args[1])) { p.sendMessage(plugin.Serverprefix + "§cDu kannst dich nicht zu dir selbst teleportieren!"); return true; }
+        if ( args.length == 1 && Bukkit.getPlayer(args[0]) instanceof Player) {
+            if ( p == Bukkit.getPlayer(args[0])) { p.sendMessage(plugin.Serverprefix + "§cDu kannst dich nicht zu dir selbst teleportieren!"); return true; }
             // Is the player on the server
             try {
                 // Getting player to send
-                Player p2 = Bukkit.getPlayer(args[1]);
+                Player p2 = Bukkit.getPlayer(args[0]);
 
                 // Set it in a HashMap
                 craftattack.tpa.put(p2, p);
 
                 // Send Message
-                p2.sendMessage(plugin.Serverprefix + "§7Der Spieler §6" + p.getDisplayName() + "§r§7 möchte sich zu dir §cteleportieren§7! Entscheide: §a§l/tpa accept§r§7/§c§lcdenied§r§7 ein.");
+                p2.sendMessage(plugin.Serverprefix + "§7Der Spieler §6" + p.getDisplayName() + "§r§7 möchte sich zu dir §cteleportieren§7! Entscheide: §a§l/tpa accept§r§7/§c§ldenied§r§7 ein.");
                 p.sendMessage(plugin.Serverprefix + "§7Die Anfrage wurde an §6" + p2.getDisplayName() + "§7 geschickt!");
 
             } catch (Exception ex) {
@@ -66,8 +66,20 @@ public class tpa implements CommandExecutor {
             }
             // Clearing HashMap
             craftattack.tpa.clear();
+        } else if ( args.length == 1 && args[0].equals("revoke")) {
+            // Is the Player online check
+            try {
+                craftattack.tpa.clear();
+
+                p.sendMessage(plugin.Serverprefix + "§7Teleport Anfrage §czurückgenommen!");
+
+            } catch (Exception ex) {
+                p.sendMessage(plugin.Serverprefix + "§cDer Spieler ist nicht mehr erreichbar.");
+            }
+            // Clearing HashMap
+            craftattack.tpa.clear();
         } else {
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/tpa {to/accept/denied} {player}");
+            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/tpa {player/revoke/accept/denied} {player}");
         }
 
         return false;

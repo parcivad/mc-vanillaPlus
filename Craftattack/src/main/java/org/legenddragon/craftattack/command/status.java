@@ -25,64 +25,61 @@ public class status implements CommandExecutor {
                 case "Owner":
                     if ( !p.hasPermission("tablist.owner")) { p.sendMessage(plugin.Serverprefix + "§4Für diesen Prefix hast du keine Berechtigung"); return true;}
                     plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "Owner");
-                    p.sendMessage(plugin.Serverprefix + "§7Dein Status wurde auf,§6 " + args[0] + ", §7geändert!");
                     p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
                     break;
                 case "Dev":
                     if ( !p.hasPermission("tablist.dev")) { p.sendMessage(plugin.Serverprefix + "§4Für diesen Prefix hast du keine Berechtigung"); return true;}
                     plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "Dev");
-                    p.sendMessage(plugin.Serverprefix + "§7Dein Status wurde auf,§6 " + args[0] + ", §7geändert!");
                     p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
                     break;
                 case "Building":
                     plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "Building");
-                    p.sendMessage(plugin.Serverprefix + "§7Dein Status wurde auf,§6 " + args[0] + ", §7geändert!");
                     p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
                     break;
                 case "Redstone":
                     plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "Redstone");
-                    p.sendMessage(plugin.Serverprefix + "§7Dein Status wurde auf,§6 " + args[0] + ", §7geändert!");
                     p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
                     break;
                 case "Neutral":
                     plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "Neutral");
-                    p.sendMessage(plugin.Serverprefix + "§7Dein Status wurde auf,§6 " + args[0] + ", §7geändert!");
                     p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
                     break;
                 case "Live":
                     plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "Live");
-                    p.sendMessage(plugin.Serverprefix + "§7Dein Status wurde auf,§6 " + args[0] + ", §7geändert!");
                     p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
                     break;
                 case "REC":
                     plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "REC");
-                    p.sendMessage(plugin.Serverprefix + "§7Dein Status wurde auf,§6 " + args[0] + ", §7geändert!");
                     p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
                     break;
                 case "Mining":
                     plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "Mining");
-                    p.sendMessage(plugin.Serverprefix + "§7Dein Status wurde auf,§6 " + args[0] + ", §7geändert!");
                     p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
                     break;
                 case "Afk":
                     plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "Afk");
-                    p.sendMessage(plugin.Serverprefix + "§7Dein Status wurde auf,§6 " + args[0] + ", §7geändert!");
                     p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
                     break;
                 case "Fighting":
                     plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "Fighting");
-                    p.sendMessage(plugin.Serverprefix + "§7Dein Status wurde auf,§6 " + args[0] + ", §7geändert!");
+                    p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
+                    break;
+                case "Ehe":
+                    plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "Ehe");
+                    p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
+                    break;
+                case "Killer":
+                    plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", "Killer");
                     p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
                     break;
                 case "off":
                     plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", null);
-                    p.sendMessage(plugin.Serverprefix + "§7Dein Status wurde auf,§6 " + args[0] + ", §7geändert!");
                     p.kickPlayer("§6Status wurde geändert! §c§l//§r §7Joine nochmal um deinen Aktuellen Status zu sehen!");
                     break;
             }
 
         } else {
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/status {Owner/Dev/Building/Fighting/Redstone/Neutral/Live/REC/Mining/Afk/off}");
+            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/status {Killer/Ehe/Building/Fighting/Redstone/Neutral/Live/REC/Mining/Afk/off}");
         }
 
         return false;

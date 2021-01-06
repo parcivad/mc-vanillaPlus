@@ -1,6 +1,7 @@
 org/legenddragon/craftattack/listener/onLogin.class
 org/legenddragon/craftattack/command/spawn.class
 org/legenddragon/craftattack/command/inv.class
+org/legenddragon/craftattack/command/seed.class
 org/legenddragon/craftattack/command/stats.class
 org/legenddragon/craftattack/command/status.class
 org/legenddragon/craftattack/config/CustomConfiguration.class

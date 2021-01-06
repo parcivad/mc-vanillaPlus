@@ -1,5 +1,6 @@
 package org.legenddragon.craftattack.command;
 
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,6 +17,7 @@ public class lock implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
+
         boolean lockmode = plugin.ServerConfig.get().getBoolean("Server.LockMode");
         Player p = (Player) sender;
 
@@ -28,6 +30,12 @@ public class lock implements CommandExecutor {
 
                     p.sendMessage(plugin.Serverprefix + "§7Der Server befindet sich nun im §c§lLOCKMODE!");
                     lockmode = true;
+
+                    String message = (String) plugin.ServerConfig.get().get("Server.message");
+
+                    for (Player all : Bukkit.getOnlinePlayers() ) {
+                        all.kickPlayer("§4✖§r §6§lCraftattack Netzwerk§r §7ist §cgelockt§r§7! §4✖§r  §7// §c§l" + message);
+                    }
 
                 }
                 if (args[0].equalsIgnoreCase("off")) {

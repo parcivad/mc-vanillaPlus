@@ -1,6 +1,9 @@
 package org.legenddragon.craftattack.listener;
 
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.entity.Creeper;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -20,6 +23,16 @@ public class onPlayerDeath implements Listener {
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent e) {
         Player p = (Player) e.getEntity();
+        Player killer = p.getKiller();
+        Location pos = p.getLocation();
+
+        if ( killer instanceof Player) {
+            e.setDeathMessage("§c☠ " + p.getName() + " §6killed by §c" + killer.getName());
+            p.sendMessage(plugin.Serverprefix + "§7Todes Kooridnaten: [§9§l" + pos.getBlockX() + "§7, §9§l" + pos.getBlockY() + "§7, §9§l" + pos.getBlockZ() + "§7]");
+        } else {
+            e.setDeathMessage("§c☠ " + p.getName());
+            p.sendMessage(plugin.Serverprefix + "§7Todes Kooridnaten: [§9§l" + pos.getBlockX() + "§7, §9§l" + pos.getBlockY() + "§7, §9§l" + pos.getBlockZ() + "§7]");
+        }
 
         // Elytra Item Stack
         ItemStack Elytra = new ItemStack(Material.ELYTRA);

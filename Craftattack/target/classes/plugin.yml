@@ -41,3 +41,5 @@ commands:
     description: "Shows all Commands"
   settings:
     description: "ServerConfig settings"
+  seed:
+    description: "Shows seed to special people"
