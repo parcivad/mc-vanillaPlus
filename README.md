@@ -18,6 +18,8 @@ Die Features, bzw. Commands, sind folgende
 /lock {message/on/off} {reason}
 /stats {player}
 /settings {booster}
+/cban {player} {reason}
+/cunban {player}
 ```
 
 ## Booster
