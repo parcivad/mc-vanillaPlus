@@ -28,7 +28,7 @@ public class settings implements CommandExecutor {
             plugin.ServerConfig.save();
             p.sendMessage(plugin.Serverprefix + "§atask finished");
         } else {
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/settings {booster/jumpoffmiddle/jumpoffradius}");
+            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/settings {booster}");
         }
 
         return false;

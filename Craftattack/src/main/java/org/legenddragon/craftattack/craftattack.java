@@ -101,6 +101,8 @@ public class craftattack extends JavaPlugin implements Listener {
             Objects.requireNonNull(getCommand("help")).setExecutor(new help(this));
             Objects.requireNonNull(getCommand("settings")).setExecutor(new settings(this));
             Objects.requireNonNull(getCommand("seed")).setExecutor(new seed(this));
+            Objects.requireNonNull(getCommand("Cban")).setExecutor(new ban(this));
+            Objects.requireNonNull(getCommand("Cunban")).setExecutor(new unban(this));
         } catch(NullPointerException ex) {
             ex.printStackTrace();
             messageOps("§c§lPLUGIN ERROR: " + Arrays.toString(ex.getStackTrace()));

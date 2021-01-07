@@ -8,6 +8,8 @@
 /Users/timurstegmann/IdeaProjects/Craftattack/src/main/java/org/legenddragon/craftattack/listener/onElytraToggle.java
 /Users/timurstegmann/IdeaProjects/Craftattack/src/main/java/org/legenddragon/craftattack/command/ec.java
 /Users/timurstegmann/IdeaProjects/Craftattack/src/main/java/org/legenddragon/craftattack/command/lock.java
+/Users/timurstegmann/IdeaProjects/Craftattack/src/main/java/org/legenddragon/craftattack/command/unban.java
+/Users/timurstegmann/IdeaProjects/Craftattack/src/main/java/org/legenddragon/craftattack/command/ban.java
 /Users/timurstegmann/IdeaProjects/Craftattack/src/main/java/org/legenddragon/craftattack/listener/onLogin.java
 /Users/timurstegmann/IdeaProjects/Craftattack/src/main/java/org/legenddragon/craftattack/command/spawn.java
 /Users/timurstegmann/IdeaProjects/Craftattack/src/main/java/org/legenddragon/craftattack/command/inv.java

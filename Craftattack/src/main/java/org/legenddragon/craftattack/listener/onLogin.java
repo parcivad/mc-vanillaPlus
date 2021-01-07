@@ -1,6 +1,8 @@
 package org.legenddragon.craftattack.listener;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerLoginEvent;
@@ -39,6 +41,17 @@ public class onLogin implements Listener {
                 plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".DisplayName", p.getDisplayName() );
                 plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", null);
                 e.disallow(PlayerLoginEvent.Result.KICK_OTHER, "§6Spieler erstellt! §a§l//§r §7Dir wurde ein Spieler erstellt du kannst nochmal versuchen zu joinen!");
+
+            } else if ( plugin.PlayerConfig.get().isSet("User." + p.getUniqueId() + ".ban") ) {
+                // If ban Message is set. In Case of not, the Kick Message has no reason!
+                if ( plugin.PlayerConfig.get().isSet("User." + p.getUniqueId() + ".banMessage")) {
+                    String banMessage = plugin.PlayerConfig.get().getString("User." + p.getUniqueId() + ".banMessage");
+
+                    e.disallow(PlayerLoginEvent.Result.KICK_BANNED, "§6§lServer Netzwerk \n§r§7Du wurdest gebannt!\n§4§lReason: " + banMessage);
+                } else {
+                    e.disallow(PlayerLoginEvent.Result.KICK_BANNED, "§6§lServer Netzwerk \n§r§7Du wurdest gebannt!");
+                }
+
             }
         }
 
