@@ -16,10 +16,13 @@ public class onServerListPing implements Listener {
 
     @EventHandler
     public void onServerListPin(ServerListPingEvent e) {
+
+        // Change Motd when server is locked
         if ( plugin.ServerConfig.get().getBoolean("Server.LockMode") ) {
             e.setMotd("              §7§l[§6CRAFTATTACK§7§l]§r  §7[§a1.16.4§7]           \n§4✖§c Der Server ist zur Zeit gesperrt!");
         } else {
             e.setMotd("              §7§l[§6CRAFTATTACK§7§l]§r  §7[§a1.16.4§7]           \n§7➯§l§aServer ist online §f❄ §6§lJoine und Registriere dich!");
         }
+
     }
 }

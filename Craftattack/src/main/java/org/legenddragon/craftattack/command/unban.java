@@ -9,6 +9,8 @@ import org.bukkit.entity.Player;
 import org.legenddragon.craftattack.craftattack;
 import sun.security.x509.UniqueIdentity;
 
+import java.io.Console;
+
 public class unban implements CommandExecutor {
 
     public craftattack plugin;
@@ -19,26 +21,63 @@ public class unban implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
-        Player p = (Player) sender;
 
-        if ( !p.hasPermission("manage.unban")) { p.sendMessage(plugin.Serverprefix + "§4Du hast dafür keine Berechtigung"); return true;}
-
-        if ( args.length == 1 ) {
-
+        // Command for Console
+        if ( !(sender instanceof Player) ) {
             OfflinePlayer p2 = Bukkit.getOfflinePlayer(args[0]);
 
             if ( plugin.PlayerConfig.get().isSet("User." + p2.getUniqueId() + ".ban") ) {
 
+                // reseting that the player is banned in config
                 plugin.PlayerConfig.get().set("User." + p2.getUniqueId() + ".ban", null);
-                plugin.PlayerConfig.get().set("User." + p2.getUniqueId() + ".unban", null);
+                plugin.PlayerConfig.get().set("User." + p2.getUniqueId() + ".banMessage", null);
+                // reseting the player banned time, when the player got temporal banned
+                if ( plugin.PlayerConfig.get().isSet("User." + p2.getUniqueId() + ".banTime")) {
+                    plugin.PlayerConfig.get().set("User." + p2.getUniqueId() + ".banTime", null);
+                    plugin.PlayerConfig.get().set("User." + p2.getUniqueId() + ".bannedTime", null);
+                }
 
-                p.sendMessage(plugin.Serverprefix + "§7Player " + p2.getName() + " §aunbanned!");
+                // Sending Message
+                System.out.println("Player " + p2.getName() + " unbanned!");
 
             } else {
+                // Sending Message that the player is not in Config banned
+                System.out.println("Player is not banned ");
+            }
+            return true;
+        }
+
+        // Command for a player
+        Player p = (Player) sender;
+
+        // Player need unban Permission
+        if ( !p.hasPermission("manage.unban")) { p.sendMessage(plugin.Serverprefix + "§4Du hast dafür keine Berechtigung"); return true;}
+
+        if ( args.length == 1 ) {
+
+            // A banned Player must be offline
+            OfflinePlayer p2 = Bukkit.getOfflinePlayer(args[0]);
+
+            if ( plugin.PlayerConfig.get().isSet("User." + p2.getUniqueId() + ".ban") ) {
+
+                // reseting that the player is banned in config
+                plugin.PlayerConfig.get().set("User." + p2.getUniqueId() + ".ban", null);
+                plugin.PlayerConfig.get().set("User." + p2.getUniqueId() + ".unban", null);
+                // reseting the player banned time, when the player got temporal banned
+                if ( plugin.PlayerConfig.get().isSet("User." + p2.getUniqueId() + ".banTime")) {
+                    plugin.PlayerConfig.get().set("User." + p2.getUniqueId() + ".banTime", null);
+                    plugin.PlayerConfig.get().set("User." + p2.getUniqueId() + ".bannedTime", null);
+                }
+
+                // Sending Message
+                p.sendMessage(plugin.Serverprefix + "§7Player §6" + p2.getName() + " §a§lunbanned!");
+
+            } else {
+                // Sending Message that the player is not in Config banned
                 p.sendMessage(plugin.Serverprefix + "§cPlayer is not banned ");
             }
-
         } else {
+            // Sending Message how the Command works
             p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/unban {player} ");
         }
 

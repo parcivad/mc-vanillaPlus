@@ -47,7 +47,7 @@ commands:
     description: "ServerConfig settings"
   seed:
     description: "Shows seed to special people"
-  Cban:
+  tempban:
     description: "ban a player"
-  Cunban:
+  tempunban:
     description: "unban a player"

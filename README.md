@@ -18,8 +18,8 @@ Die Features, bzw. Commands, sind folgende
 /lock {message/on/off} {reason}
 /stats {player}
 /settings {booster}
-/cban {player} {reason}
-/cunban {player}
+/tempban {player} {reason} {time} {m/h}
+/tempunban {player}
 ```
 
 ## Booster
@@ -39,6 +39,6 @@ enderchest.open  Player can open Enderchest from another Player
 ```
 
 ### Code
-Das Projekt basiert auf Maven
+Das Projekt basiert auf Maven (IDEA)
 
 

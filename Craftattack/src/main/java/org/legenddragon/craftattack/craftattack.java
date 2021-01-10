@@ -19,7 +19,7 @@ import java.util.Objects;
 public class craftattack extends JavaPlugin implements Listener {
 
     // Plugin Prefix
-    public String Serverprefix = "§7[§6§lCA§r§7] §r";
+    public static final String Serverprefix = "§7[§6§lCA§r§7] §r";
 
     // Normal config for some saves
     public CustomConfiguration PlayerConfig;
@@ -30,9 +30,21 @@ public class craftattack extends JavaPlugin implements Listener {
     // Hashmap for tpa Command
     public static HashMap<Player, Player> tpa = new HashMap<Player, Player>();
 
+    // ANSI Colors for Console
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
+
     Scoreboard sb;
     public void onEnable() {
 
+        // Scoreboard for Prefix (teams)
         sb = Bukkit.getScoreboardManager().getNewScoreboard();
 
         // Team Register
@@ -67,7 +79,6 @@ public class craftattack extends JavaPlugin implements Listener {
         reloadConfig();
         getConfig().options().copyDefaults();
         saveConfig();
-        saveDefaultConfig();
 
         PlayerConfig = new CustomConfiguration("PlayerConfig", this );
         PlayerConfig.reload();
@@ -76,6 +87,7 @@ public class craftattack extends JavaPlugin implements Listener {
         ServerConfig = new CustomConfiguration( "ServerConfig", this );
         ServerConfig.reload();
         ServerConfig.save();
+
 
         // Register Events
         Bukkit.getPluginManager().registerEvents(new onJoin(), this);
@@ -101,8 +113,8 @@ public class craftattack extends JavaPlugin implements Listener {
             Objects.requireNonNull(getCommand("help")).setExecutor(new help(this));
             Objects.requireNonNull(getCommand("settings")).setExecutor(new settings(this));
             Objects.requireNonNull(getCommand("seed")).setExecutor(new seed(this));
-            Objects.requireNonNull(getCommand("Cban")).setExecutor(new ban(this));
-            Objects.requireNonNull(getCommand("Cunban")).setExecutor(new unban(this));
+            Objects.requireNonNull(getCommand("tempban")).setExecutor(new ban(this));
+            Objects.requireNonNull(getCommand("tempunban")).setExecutor(new unban(this));
         } catch(NullPointerException ex) {
             ex.printStackTrace();
             messageOps("§c§lPLUGIN ERROR: " + Arrays.toString(ex.getStackTrace()));

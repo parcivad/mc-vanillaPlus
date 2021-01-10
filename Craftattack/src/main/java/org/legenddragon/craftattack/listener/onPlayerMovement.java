@@ -26,6 +26,9 @@ public class onPlayerMovement implements Listener {
 
     @EventHandler
     public void onPlayerMovement(PlayerMoveEvent e) {
+
+        if ( !plugin.ServerConfig.get().isSet("Server.Booster-Height") ) { return; }
+
         Player p = e.getPlayer();
         Location pos = e.getPlayer().getLocation();
 
