@@ -8,6 +8,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.legenddragon.craftattack.craftattack;
 
+import static org.legenddragon.craftattack.craftattack.*;
+
 public class inv implements CommandExecutor {
 
     public craftattack plugin;
@@ -18,22 +20,29 @@ public class inv implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
+        // Cancel the command for console
+        if ( !(sender instanceof Player) ) { System.out.println(ANSI_RED + " That Command is not optimized for console!" + ANSI_RESET); return true; }
+
         Player p = (Player) sender;
 
+        // Command should look like: /inv Player
         if ( args.length == 1 ) {
+            // Has the player permission
             if ( p.hasPermission("invsee")) {
+                // Catch if the player is offline
                 try {
                     Player p2 = Bukkit.getPlayer(args[0]);
                     Inventory p2inv = p2.getInventory();
                     p.openInventory(p2inv);
                 } catch (Exception ex) {
-                    p.sendMessage(plugin.Serverprefix + "§cDieser Spieler ist nicht erreichbar!");
+                    p.sendMessage(Serverprefix + "§cDieser Spieler ist nicht erreichbar!");
                 }
+
             } else {
-                p.sendMessage(plugin.Serverprefix + "§4Du hast dafür keine Berechtigung!");
+                p.sendMessage(Serverprefix + "§4Du hast dafür keine Berechtigung!");
             }
         } else {
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/inv {player}");
+            p.sendMessage(Serverprefix + "§7Befehl: §6/inv {player}");
         }
         return false;
     }

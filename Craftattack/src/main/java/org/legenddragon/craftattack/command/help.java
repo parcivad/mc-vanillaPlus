@@ -6,6 +6,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.legenddragon.craftattack.craftattack;
 
+import static org.legenddragon.craftattack.craftattack.*;
+
 public class help implements CommandExecutor {
 
     public craftattack plugin;
@@ -16,17 +18,19 @@ public class help implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
+        // Cancel the command for console
+        if ( !(sender instanceof Player) ) { System.out.println(ANSI_RED + " That Command is not optimized for console!" + ANSI_RESET); return true; }
+
         Player p = (Player) sender;
 
-        if ( args.length == 0 ) {
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/ec {player}");
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/inv {player}");
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/pos {save/delete/name} {name}");
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/spawn");
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/stats {player}");
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/status {mehr info: /status}");
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/tpa {accept/denied/to} {player}");
-        }
+        // Sending help message
+        p.sendMessage(Serverprefix + "§7Befehl: §6/ec {player}");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/inv {player}");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/pos {save/delete/name} {name}");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/spawn");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/stats {player}");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/status {mehr info: /status}");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/tpa {accept/denied/to} {player}");
 
         return false;
     }

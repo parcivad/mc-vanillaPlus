@@ -80,10 +80,12 @@ public class craftattack extends JavaPlugin implements Listener {
         getConfig().options().copyDefaults();
         saveConfig();
 
+        // Player Config for Player Data like positions
         PlayerConfig = new CustomConfiguration("PlayerConfig", this );
         PlayerConfig.reload();
         PlayerConfig.save();
 
+        // Server Config for general settings
         ServerConfig = new CustomConfiguration( "ServerConfig", this );
         ServerConfig.reload();
         ServerConfig.save();
@@ -121,6 +123,7 @@ public class craftattack extends JavaPlugin implements Listener {
         }
     }
 
+    // Saves Config
     public void onDisable() {
         ServerConfig.save();
         PlayerConfig.save();
@@ -134,6 +137,7 @@ public class craftattack extends JavaPlugin implements Listener {
         });
     }
 
+    // Setting the prefix/team in tablist
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
