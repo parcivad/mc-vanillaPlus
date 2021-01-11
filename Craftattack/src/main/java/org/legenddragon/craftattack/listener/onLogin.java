@@ -61,8 +61,10 @@ public class onLogin implements Listener {
                         long banTime = plugin.PlayerConfig.get().getLong("User." + p.getUniqueId() + ".banTime");
 
                         // Minutes and Hours till the player is unbanned
+                        long secondUnban = (banTime - minute) % 60;
                         long minuteUnban = (banTime - minute) / 60 % 60;
                         long hourUnban = (banTime - minute) / 60 / 60;
+
 
                         if ( minuteUnban <= 0 && hourUnban <= 0 ) {
                             e.allow();
@@ -76,7 +78,7 @@ public class onLogin implements Listener {
                                 plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".bannedTime", null);
                             }
                         } else {
-                            e.disallow(PlayerLoginEvent.Result.KICK_BANNED, "§6§lServer Netzwerk \n§r§7Du wurdest gebannt!\n§4§lReason: " + banMessage + "\n\n§7Entbannt in: \n§a" + minuteUnban + "m " + hourUnban + "h" );
+                            e.disallow(PlayerLoginEvent.Result.KICK_BANNED, "§6§lServer Netzwerk \n§r§7Du wurdest gebannt!\n§4§lReason: " + banMessage + "\n\n§7Entbannt in: \n§a" + hourUnban + " Stunden " + minuteUnban + " Minuten " + secondUnban + " Sekunden" );
                         }
 
 

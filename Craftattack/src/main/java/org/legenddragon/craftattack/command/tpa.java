@@ -48,7 +48,7 @@ public class tpa implements CommandExecutor {
 
                 TextComponent revoke = new TextComponent(" §7[§cREVOKE§7]");
                 revoke.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tpa revoke"));
-                revoke.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("§cRevoke the TPA")));
+                revoke.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("§cTPA zurücknehmen")));
 
                 TextComponent confirmation = new TextComponent();
                 confirmation.addExtra(defaultMessagePlayer1);
@@ -60,11 +60,11 @@ public class tpa implements CommandExecutor {
 
                 TextComponent accept = new TextComponent("§a§laccept§r§7/");
                 accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tpa accept"));
-                accept.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("§a§lAccept the TPA")));
+                accept.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("§a§lTPA akzeptieren")));
 
                 TextComponent denied = new TextComponent("§c§ldenied");
                 denied.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tpa denied"));
-                denied.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("§c§lDenied the TPA")));
+                denied.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text("§c§lTPA ablehnen")));
 
                 TextComponent acceptanddenied = new TextComponent();
                 acceptanddenied.addExtra(defaultMessagePlayer2);

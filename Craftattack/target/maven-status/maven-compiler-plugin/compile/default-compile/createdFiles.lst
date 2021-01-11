@@ -8,6 +8,7 @@ org/legenddragon/craftattack/listener/onJoin.class
 org/legenddragon/craftattack/command/help.class
 org/legenddragon/craftattack/command/settings.class
 org/legenddragon/craftattack/command/tpa.class
+org/legenddragon/craftattack/command/info.class
 org/legenddragon/craftattack/listener/onLogin.class
 org/legenddragon/craftattack/command/stats.class
 org/legenddragon/craftattack/command/ban.class
