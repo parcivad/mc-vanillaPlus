@@ -25,8 +25,11 @@ public class lock implements CommandExecutor {
         // Use optimized command for console
         if ( !(sender instanceof Player) ) {
             // Setting Lock Message (FROM CONSOLE)
+            if (args.length == 0) {return true;}
 
             plugin.ServerConfig.get().set("Server.message", "Server Locked from Console");
+
+
 
             boolean lockmode = plugin.ServerConfig.get().getBoolean("Server.LockMode");
             if (args[0].equalsIgnoreCase("on")) {

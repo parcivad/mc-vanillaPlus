@@ -24,6 +24,8 @@ public class unban implements CommandExecutor {
 
         // Command for Console
         if ( !(sender instanceof Player) ) {
+            if (args.length == 0) {return true;}
+
             OfflinePlayer p2 = Bukkit.getOfflinePlayer(args[0]);
 
             if ( plugin.PlayerConfig.get().isSet("User." + p2.getUniqueId() + ".ban") ) {

@@ -9,6 +9,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.legenddragon.craftattack.craftattack;
 
+import static org.legenddragon.craftattack.craftattack.Serverprefix;
+
 public class onElytraToggle implements Listener {
 
     public craftattack plugin;
@@ -32,7 +34,7 @@ public class onElytraToggle implements Listener {
                 return;
             } else if ( p.getInventory().getChestplate().getItemMeta().getDisplayName().equals(Elytra.getItemMeta().getDisplayName()) ) {
                 p.getInventory().setChestplate(null);
-                p.sendMessage(plugin.Serverprefix + "§7Die Flug §dElytra §7wurde dir §centzogen!");
+                p.sendMessage(Serverprefix + "§7Die Flug §dElytra §7wurde dir §centzogen!");
             }
         }
     }

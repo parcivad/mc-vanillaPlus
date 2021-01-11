@@ -10,6 +10,8 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.legenddragon.craftattack.craftattack;
 
+import static org.legenddragon.craftattack.craftattack.Serverprefix;
+
 public class onPlayerDeath implements Listener {
 
     public craftattack plugin;
@@ -26,10 +28,10 @@ public class onPlayerDeath implements Listener {
 
         if ( killer instanceof Player) {
             e.setDeathMessage("§c☠ " + p.getName() + " §6killed by §c" + killer.getName());
-            p.sendMessage(plugin.Serverprefix + "§7Todes Kooridnaten: [§9§l" + pos.getBlockX() + "§7, §9§l" + pos.getBlockY() + "§7, §9§l" + pos.getBlockZ() + "§7]");
+            p.sendMessage(Serverprefix + "§7Todes Kooridnaten: [§9§l" + pos.getBlockX() + "§7, §9§l" + pos.getBlockY() + "§7, §9§l" + pos.getBlockZ() + "§7]");
         } else {
             e.setDeathMessage("§c☠ " + p.getName());
-            p.sendMessage(plugin.Serverprefix + "§7Todes Kooridnaten: [§9§l" + pos.getBlockX() + "§7, §9§l" + pos.getBlockY() + "§7, §9§l" + pos.getBlockZ() + "§7]");
+            p.sendMessage(Serverprefix + "§7Todes Kooridnaten: [§9§l" + pos.getBlockX() + "§7, §9§l" + pos.getBlockY() + "§7, §9§l" + pos.getBlockZ() + "§7]");
         }
 
         // Elytra Item Stack

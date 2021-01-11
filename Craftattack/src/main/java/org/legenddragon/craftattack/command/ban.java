@@ -41,7 +41,7 @@ public class ban implements CommandExecutor {
             plugin.PlayerConfig.get().set("User." + p2.getUniqueId() + ".ban", true);
 
             // Sending Message to the Player and kick the banned player
-            p.sendMessage(Serverprefix + "§6Player §6" + p.getName() + " §abanned!");
+            p.sendMessage(Serverprefix + "§6Player §6" + p.getName() + " §4§lbanned!");
             p.kickPlayer("§6§lServer Netzwerk \n§r§7Du wurdest gebannt!");
 
         // Command should look like: /tempban Player Reason
