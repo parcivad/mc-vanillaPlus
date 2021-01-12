@@ -42,6 +42,7 @@ public class onInventoryInteract implements Listener {
             if ( e.getCurrentItem().getItemMeta().getDisplayName().equals(Elytra.getItemMeta().getDisplayName())) {
                 e.setCancelled(true);
             }
+
         } catch (Exception e1) {
             return;
         }

@@ -1,7 +1,48 @@
 package org.legenddragon.craftattack.command;
 
-public class info {
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.legenddragon.craftattack.craftattack;
 
-    // Future update
+import static org.legenddragon.craftattack.craftattack.*;
+
+public class info implements CommandExecutor {
+
+    public craftattack plugin;
+
+    public infoTools tools;
+
+    public info(craftattack plugin) {
+        this.plugin = plugin;
+        tools = new infoTools();
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
+        // Cancel the command for console
+        if ( !(sender instanceof Player) ) { System.out.println(ANSI_RED + " That Command is not optimized for console!" + ANSI_RESET); return true; }
+
+        Player p = (Player) sender;
+
+        // Command should look like: /info
+        if ( args.length == 0 ) {
+
+            // Creating Deafult Info Inv
+            Inventory inv = tools.defaultInv();
+
+        } else {
+
+            // Sending Message
+            p.sendMessage(Serverprefix + "§7Befehl: §6/info");
+
+        }
+
+
+
+        return false;
+    }
 
 }

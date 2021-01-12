@@ -1,5 +1,6 @@
 package org.legenddragon.craftattack.command;
 
+import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,6 +32,7 @@ public class help implements CommandExecutor {
         p.sendMessage(Serverprefix + "§7Befehl: §6/stats {player}");
         p.sendMessage(Serverprefix + "§7Befehl: §6/status {mehr info: /status}");
         p.sendMessage(Serverprefix + "§7Befehl: §6/tpa {accept/denied/to} {player}");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/info");
 
         return false;
     }
