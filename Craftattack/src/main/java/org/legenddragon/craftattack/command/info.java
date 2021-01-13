@@ -1,11 +1,23 @@
 package org.legenddragon.craftattack.command;
 
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.json.simple.parser.Yytoken;
 import org.legenddragon.craftattack.craftattack;
+import org.yaml.snakeyaml.Yaml;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import static org.legenddragon.craftattack.craftattack.*;
 
@@ -33,8 +45,9 @@ public class info implements CommandExecutor {
             // Creating Deafult Info Inv
             Inventory inv = tools.defaultInv();
 
-        } else {
+            p.openInventory(inv);
 
+        } else {
             // Sending Message
             p.sendMessage(Serverprefix + "§7Befehl: §6/info");
 

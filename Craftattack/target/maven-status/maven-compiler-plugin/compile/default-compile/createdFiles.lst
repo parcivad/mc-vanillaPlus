@@ -6,6 +6,7 @@ org/legenddragon/craftattack/command/unban.class
 org/legenddragon/craftattack/listener/onPlayerDeath.class
 org/legenddragon/craftattack/listener/onJoin.class
 org/legenddragon/craftattack/command/help.class
+org/legenddragon/craftattack/command/infoTools.class
 org/legenddragon/craftattack/command/settings.class
 org/legenddragon/craftattack/command/tpa.class
 org/legenddragon/craftattack/command/info.class

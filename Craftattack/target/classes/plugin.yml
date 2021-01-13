@@ -51,3 +51,5 @@ commands:
     description: "ban a player"
   tempunban:
     description: "unban a player"
+  info:
+    description: "Show the player a info Inv about the Users on the Server"
