@@ -2,7 +2,7 @@
 Ein Plugin mit verschiedenen Funktionen und Features für einen besseren vanilla Server. Dieses Plugin
 kann für ein Minecraft Projekt genutzt werden um das Spiel zu verbessern.
 
-[![Discord](https://img.shields.io/discord/660567679458869252?label=Discord&logo=discord)](https://discord.gg/MFhh5XEM2b)
+[![Discord](https://img.shields.io/discord/690934524955197471?label=Discord&logo=discord)](https://discord.gg/MFhh5XEM2b)
 
 ## Ausführung/Nutzung
 Das Plugin kann auf einem Spigot basiertem Minecraft Server der Version 1.16 genutzt werden!
