@@ -44,8 +44,6 @@ public class onLogin implements Listener {
                 plugin.PlayerConfig.get().createSection("User." + p.getUniqueId());
                 plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".DisplayName", p.getDisplayName() );
                 plugin.PlayerConfig.get().set("User." + p.getUniqueId() + ".Status", null);
-                e.disallow(PlayerLoginEvent.Result.KICK_OTHER, "§6Spieler erstellt! §a§l//§r §7Dir wurde ein Spieler erstellt du kannst nochmal versuchen zu joinen!");
-
 
             // Is the Player banned?
             } else if ( plugin.PlayerConfig.get().isSet("User." + p.getUniqueId() + ".ban") ) {

@@ -24,14 +24,17 @@ public class help implements CommandExecutor {
         Player p = (Player) sender;
 
         // Sending help message
-        p.sendMessage(Serverprefix + "§7Befehl: §6/ec {player}");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/tpa {to/accept/denied} {player}");
         p.sendMessage(Serverprefix + "§7Befehl: §6/inv {player}");
         p.sendMessage(Serverprefix + "§7Befehl: §6/pos {save/delete/name} {name}");
         p.sendMessage(Serverprefix + "§7Befehl: §6/spawn");
         p.sendMessage(Serverprefix + "§7Befehl: §6/stats {player}");
-        p.sendMessage(Serverprefix + "§7Befehl: §6/status {mehr info: /status}");
         p.sendMessage(Serverprefix + "§7Befehl: §6/tpa {accept/denied/to} {player}");
-        p.sendMessage(Serverprefix + "§7Befehl: §6/info");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/ec {player}");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/lock {message/on/off} {reason}");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/tempban {player} {reason} {time} {m/h}");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/tempunban {player}");
+        p.sendMessage(Serverprefix + "§7Befehl: §6/commands {command} {on/off}");
 
         return false;
     }

@@ -16,15 +16,17 @@ permissions:
     description: "Let the Player see into a Inventory from another Player"
   tablist.owner:
     description: "Shows the Player has the Owner in the Tablist"
+  tablist.mod:
+    description: "Shows the Player has the Mod in the Tablist"
   tablist.dev:
     description: "Shows the Player has the Dev in the Tablist"
   manage.ban:
     description: "Player can ban people"
   manage.unban:
     description: "Player can unban people"
-  manage.commands:
+  manage.activate:
     description: "Can manage active or disable commands"
-  home.noTimer:
+  home.noWait:
     description: "Player has not to wait 5min"
 
 commands:

@@ -31,7 +31,7 @@ public class booster implements CommandExecutor {
 
         if ( !p.hasPermission("server.setting")) { return true; }
 
-        if ( args[0].equals("booster")) {
+        if ( args.length == 0 ) {
             Location pos = p.getLocation();
             plugin.ServerConfig.get().set("Server.Booster-Height", pos);
             plugin.ServerConfig.save();

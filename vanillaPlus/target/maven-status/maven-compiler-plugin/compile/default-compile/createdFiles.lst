@@ -1,4 +1,3 @@
-org/legenddragon/vanillaPlus/command/commands.class
 org/legenddragon/vanillaPlus/command/seed.class
 org/legenddragon/vanillaPlus/command/lock.class
 org/legenddragon/vanillaPlus/command/inv.class
@@ -12,6 +11,7 @@ org/legenddragon/vanillaPlus/listener/onElytraToggle.class
 org/legenddragon/vanillaPlus/listener/onLogin.class
 org/legenddragon/vanillaPlus/command/pos.class
 org/legenddragon/vanillaPlus/command/home.class
+org/legenddragon/vanillaPlus/command/unban$BooleanBuilder.class
 org/legenddragon/vanillaPlus/command/spawn.class
 org/legenddragon/vanillaPlus/command/booster.class
 org/legenddragon/vanillaPlus/command/tpa.class
@@ -21,5 +21,6 @@ org/legenddragon/vanillaPlus/command/ban.class
 org/legenddragon/vanillaPlus/config/CustomConfiguration.class
 org/legenddragon/vanillaPlus/listener/onPlayerDeath.class
 org/legenddragon/vanillaPlus/command/ec.class
+org/legenddragon/vanillaPlus/command/activate.class
 org/legenddragon/vanillaPlus/listener/onInventoryInteract.class
 org/legenddragon/vanillaPlus/command/stats.class

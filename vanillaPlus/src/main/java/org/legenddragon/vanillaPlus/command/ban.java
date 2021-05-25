@@ -147,7 +147,7 @@ public class ban implements CommandExecutor {
 
                 } else {
                     // Sending Message
-                    p.sendMessage(Serverprefix + "§7Befehl: §6/ban {player} {(reason)} {time} {m/h} {reason}");
+                    p.sendMessage(Serverprefix + "§7Befehl: §6/tempban {player} {reason} {time} {m/h}");
                     return true;
                 }
 
@@ -206,7 +206,7 @@ public class ban implements CommandExecutor {
 
                 } else {
                     // Sending Message
-                    p.sendMessage(Serverprefix + "§7Befehl: §6/ban {player} {(reason)} {time} {m/h} {reason}");
+                    p.sendMessage(Serverprefix + "§7Befehl: §6/tempban {player} {reason} {time} {m/h}");
                     return true;
                 }
 
@@ -221,7 +221,7 @@ public class ban implements CommandExecutor {
                 plugin.PlayerConfig.save();
             }
         } else {
-            p.sendMessage(Serverprefix + "§7Befehl: §6/ban {player} {(reason)} {time} {m/h} {reason}");
+            p.sendMessage(Serverprefix + "§7Befehl: §6/tempban {player} {reason} {time} {m/h}");
         }
 
         // save config

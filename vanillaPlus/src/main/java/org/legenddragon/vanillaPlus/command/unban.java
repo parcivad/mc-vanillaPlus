@@ -1,5 +1,6 @@
 package org.legenddragon.vanillaPlus.command;
 
+import lombok.Builder;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -20,12 +21,11 @@ public class unban implements CommandExecutor {
         checkActive = new CheckActive( plugin );
     }
 
-    @Override
+    @Override @Builder
     public boolean onCommand(CommandSender sender, Command cmd, String arg2, String[] args) {
 
         // Check if command active
         if ( !checkActive.check("bansystem") ) { sender.sendMessage( Serverprefix + "§7Dieser Befehl ist §l§cnicht §r§7aktiv!"); return true; }
-
 
         // Command for Console
         if ( !(sender instanceof Player) ) {
@@ -85,7 +85,7 @@ public class unban implements CommandExecutor {
             }
         } else {
             // Sending Message how the Command works
-            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/unban {player} ");
+            p.sendMessage(plugin.Serverprefix + "§7Befehl: §6/tempunban {player} ");
         }
 
         return false;

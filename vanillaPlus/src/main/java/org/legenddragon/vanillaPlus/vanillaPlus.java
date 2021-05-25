@@ -1,11 +1,13 @@
 package org.legenddragon.vanillaPlus;
 
-import com.sun.tools.javac.comp.Check;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.Team;
 import org.legenddragon.vanillaPlus.command.*;
 import org.legenddragon.vanillaPlus.config.CustomConfiguration;
 import org.legenddragon.vanillaPlus.listener.*;
@@ -17,7 +19,7 @@ import java.util.Objects;
 public class vanillaPlus extends JavaPlugin implements Listener {
 
     // Plugin Prefix
-    public static final String Serverprefix = "§7[§6§lV+§r§7] §r";
+    public static final String Serverprefix = "§6§lV+§r §7| §r";
 
     // Normal config for some saves
     public CustomConfiguration PlayerConfig;
@@ -36,14 +38,21 @@ public class vanillaPlus extends JavaPlugin implements Listener {
     Scoreboard sb;
     public void onEnable() {
 
-        /*
         // Scoreboard for Prefix (teams)
         sb = Bukkit.getScoreboardManager().getNewScoreboard();
 
         // Team Register
-        sb.registerNewTeam("00000Owner").setPrefix("§4Owner §7| §4");
+        sb.registerNewTeam("00000Owner").setPrefix("§4Owner §8| §7");
         sb.getTeam("00000Owner").setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
-         */
+
+        sb.registerNewTeam("00001Mod").setPrefix("§cMod §8| §7");
+        sb.getTeam("00001Mod").setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
+
+        sb.registerNewTeam("00002Dev").setPrefix("§bDev §8| §7");
+        sb.getTeam("00002Dev").setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
+
+        sb.registerNewTeam("00008Player").setPrefix("§7Player §8| §7");
+        sb.getTeam("00008Player").setOption(Team.Option.COLLISION_RULE, Team.OptionStatus.NEVER);
 
         // Reload and save Config files
         reloadConfig();
@@ -85,7 +94,7 @@ public class vanillaPlus extends JavaPlugin implements Listener {
             Objects.requireNonNull(getCommand("seed")).setExecutor(new seed(this));
             Objects.requireNonNull(getCommand("tempban")).setExecutor(new ban(this));
             Objects.requireNonNull(getCommand("tempunban")).setExecutor(new unban(this));
-            Objects.requireNonNull(getCommand("commands")).setExecutor(new commands(this));
+            Objects.requireNonNull(getCommand("commands")).setExecutor(new activate(this));
             Objects.requireNonNull(getCommand("home")).setExecutor(new home(this));
         } catch(NullPointerException exception) {
             exception.printStackTrace();
@@ -106,29 +115,31 @@ public class vanillaPlus extends JavaPlugin implements Listener {
             }
         });
     }
-    /*
+
     // Setting the prefix/team in tablist
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
 
-        if ( this.PlayerConfig.get().get("User." + p.getUniqueId() + ".Status") != null ) {
-            String team = this.PlayerConfig.get().get("User." + p.getUniqueId() + ".Status").toString();
-            switch (team) {
-                case "Owner":
-                    sb.getTeam("00000Owner").addPlayer(p);
-                    p.setDisplayName(sb.getTeam("00000Owner").getPrefix() + p.getName()+ "§f");
-                    break;
-            }
+        // Set Role == Tablist Team
+        if ( p.hasPermission("tablist.owner" ) ) {
+            sb.getTeam("00000Owner").addPlayer(p);
+            p.setDisplayName(sb.getTeam("00000Owner").getPrefix() + p.getName() + "§f");
+        } else if ( p.hasPermission("tablist.mod")){
+            sb.getTeam("00001Mod").addPlayer(p);
+            p.setDisplayName(sb.getTeam("00001Mod").getPrefix() + p.getName()+ "§f");
+        } else if ( p.hasPermission("tablist.dev") ) {
+            sb.getTeam("00002Dev").addPlayer(p);
+            p.setDisplayName(sb.getTeam("00002Dev").getPrefix() + p.getName()+ "§f");
 
+            // Set Default role in case of no permission
         } else {
-            sb.getTeam("00008none").addPlayer(p);
-            p.setDisplayName(sb.getTeam("00008none").getPrefix() + p.getName() + "§f");
+            sb.getTeam("00008Player").addPlayer(p);
+            p.setDisplayName(sb.getTeam("00008Player").getPrefix() + p.getName()+ "§f");
         }
 
         for (Player all : Bukkit.getOnlinePlayers() ) {
             all.setScoreboard(sb);
         }
     }
-    */
 }

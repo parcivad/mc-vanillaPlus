@@ -8,11 +8,11 @@ import org.legenddragon.vanillaPlus.vanillaPlus;
 
 import static org.legenddragon.vanillaPlus.vanillaPlus.*;
 
-public class commands implements CommandExecutor {
+public class activate implements CommandExecutor {
 
     public vanillaPlus plugin;
 
-    public commands(vanillaPlus plugin) {
+    public activate(vanillaPlus plugin) {
         this.plugin = plugin;
     }
 
@@ -23,7 +23,7 @@ public class commands implements CommandExecutor {
         Player p = (Player) sender;
 
         // Check player permission
-        if ( p.hasPermission("manage.commands")) {
+        if ( p.hasPermission("manage.activate")) {
 
             // Command should look like: /commands {command} {on/off}
             if ( args.length == 2 ) {
