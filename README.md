@@ -76,6 +76,8 @@ Das Plugin hat Folgende Permissions:
     description: "Let the Player see into a Inventory from another Player"
   tablist.owner:
     description: "Shows the Player has the Owner in the Tablist"
+  tablist.mod:
+    description: "Shows the Player has the Mod in the Tablist"
   tablist.dev:
     description: "Shows the Player has the Dev in the Tablist"
   manage.ban:
@@ -87,7 +89,7 @@ Das Plugin hat Folgende Permissions:
   home.noWait:
     description: "Player has not to wait 5min"
 ```
-
+*with no permission that includes 'tablist' the player will get the Role: Player*
 ### Code
 Das Projekt basiert auf Maven (IDEA)
 
