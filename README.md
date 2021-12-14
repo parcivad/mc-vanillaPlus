@@ -1,8 +1,9 @@
+[![Minecraft](https://img.shields.io/badge/Minecraft-1.16.4-success?logo=minecraft&style=flat-square)](https://minecraft.net)
+[![Discord](https://img.shields.io/discord/690934524955197471?label=Discord&logo=discord&style=flat-square)](https://discord.gg/C2HrEeCQ)
+
 # VanillaPlus
 Ein Plugin mit verschiedenen Funktionen und Features für einen besseren vanilla Server. Dieses Plugin
 kann für ein Minecraft Projekt genutzt werden um das Spiel zu verbessern.
-
-[![Discord](https://img.shields.io/discord/690934524955197471?label=Discord&logo=discord)](https://discord.gg/MFhh5XEM2b)
 
 ## Ausführung/Nutzung
 Das Plugin kann auf einem Spigot basiertem Minecraft Server der Version 1.16 genutzt werden!
